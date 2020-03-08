@@ -9,9 +9,15 @@
         <h1>polls page</h1>
         <ul>
             {% for SelectVariable in object_list %}
-                <li>{{ SelectVariable }}</li>
+                <li><a href="{% url 'polls:detail' SelectVariable.id %}">{{ SelectVariable }}</a> </li>
             {% endfor %}
         </ul>
+    </div>
+    <div id = "employee">
+        <h1>employee</h1>
+    </div>
+    <div id = "employer">
+        <h1>employer</h1>
     </div>
 </body>
 </html>

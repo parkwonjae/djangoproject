@@ -14,3 +14,13 @@ class SelectVariable(models.Model):
 
     def __str__(self):
         return self.co_id
+
+
+class Employee(models.Model):
+    employee_id = models.CharField(max_length=10)
+    employee_pw = models.CharField(max_length=16)
+    employee_coname = models.CharField(max_length=10)
+    co_id = models.CharField(max_length=10)
+
+    def __str__(self):
+        return self.employee_id
