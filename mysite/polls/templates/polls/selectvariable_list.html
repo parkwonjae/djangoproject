@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Polls</title>
+</head>
+<body>
+    <div id = "content">
+        <h1>polls page</h1>
+        <ul>
+            {% for SelectVariable in object_list %}
+                <li>{{ SelectVariable }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

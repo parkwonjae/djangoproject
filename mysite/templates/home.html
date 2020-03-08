@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} home.html {% endblock %}
+
+{% block extra-style %}
+<style type="text/css">
+    .home-image{
+
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="home-image">
+    <h2 class="title">Django - python web programming</h2>
+    <h4 class="powered"><i class="fas fa-arrow-circle-right"></i>powered by django and bootstrap </h4>
+</div>
+
+<hr style="margin:10px 0;">
+
+<div class="row text-center">
+    <div class="col-sm-6">
+        <h3>Bookmark App</h3>
+        <p>Bookmark is a uniform resource identifier (URI)</p>
+
+    </div>
+    <div class="col-sm-6">
+        <h3>Bookmark App</h3>
+        <p>Bookmark is a uniform resource identifier (URI)</p>
+    </div>
+    <div class="col-sm-6">
+        <h3>Polls App</h3>
+        <p>Polls is a uniform resource identifier (URI)</p>
+    </div>
+</div>
+{% endblock content %}
+
+{% block footer %}
+<footer class="fixed-bottom bg-info">
+    <div class="text-white font-italic text-right mr-5">Copyright %copy; 2020</div>
+</footer>
+{% endblock %}
