@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}employee.html {% endblock %}
+
+{% block content %}
+    <h1>hello</h1>
+    <h1> employee page </h1>
+        <div>
+            {% for person in Employee %}
+                {{person.coname}}
+            {% endfor %}
+        </div>
+{{Employee.objects}}
+
+{% endblock %}

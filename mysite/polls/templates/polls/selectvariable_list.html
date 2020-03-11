@@ -1,23 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Polls</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}selectvariable_list.html {% endblock %}
+
+{% block content %}
     <div id = "content">
         <h1>polls page</h1>
         <ul>
-            {% for SelectVariable in object_list %}
+            {% for SelectVariable in SelectVariables %}
                 <li><a href="{% url 'polls:detail' SelectVariable.id %}">{{ SelectVariable }}</a> </li>
             {% endfor %}
         </ul>
     </div>
+    {{SelectVariables}}
     <div id = "employee">
-        <h1>employee</h1>
+        <h1><a href="{% url 'polls:employeelist' %}"> employee</a></h1>
     </div>
+    {{Employees}}
     <div id = "employer">
-        <h1>employer</h1>
+        <h1><a href="{% url 'polls:employerlist' %}">employer </a></h1>
     </div>
-</body>
-</html>
+{% endblock %}

@@ -28,4 +28,15 @@ urlpatterns = [
     # /blog/archive/today/
     path('archive/today/', views.PostTAV.as_view(), name='post_today_archive'),
 
+    # /blog/add/
+    path('add/', views.PostCreateView.as_view(), name='add'),
+
+    # /blog/change/
+    path('change/', views.PostChangeLV.as_view(), name='change'),
+
+    # /blog/1/update/
+    path('<int:pk>/update/', views.PostUpdateView.as_view(), name='update'),
+
+    # /blog/1/delete/
+    path('<int:pk>/delete/', views.PostDeleteView.as_view(), name ='delete'),
 ]
