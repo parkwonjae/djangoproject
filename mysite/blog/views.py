@@ -7,7 +7,7 @@ from blog.models import Post
 from django.views.generic import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
-from django.views import OwnerOnlyMixin
+from config.views import OwnerOnlyMixin
 
 
 # Create your views here.

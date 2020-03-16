@@ -3,9 +3,7 @@ from polls import views
 
 app_name = 'polls'
 urlpatterns = [
-    path('', views.SelectVariableLV.as_view(), name='index'),
-    path('<int:pk>/', views.SelectVariableDV.as_view(), name='detail'),
+    path('', views.PollsHomeView.as_view(), name='polls_home'),
     path('employee/', views.EmployeeLV.as_view(), name='employeelist'),
-    path('employer/', views.EmployeeLV.as_view(), name='employerlist'),
-
+    path('employer/', views.EmployerView.as_view(), name='employerlist'),
 ]

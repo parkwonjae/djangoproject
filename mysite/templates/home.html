@@ -25,7 +25,7 @@
 
 {% block content %}
 <div class="home-image">
-    <h2 class="title">Django - python web programming</h2>
+    <h2 class="title">핵심인재연구소</h2>
     <h4 class="powered"><i class="fas fa-arrow-circle-right"></i>powered by django and bootstrap </h4>
 </div>
 
@@ -33,13 +33,13 @@
 
 <div class="row text-center">
     <div class="col-sm-6">
-        <h3>Bookmark App</h3>
-        <p>Bookmark is a uniform resource identifier (URI)</p>
+        <a class="organization check" href="{% url 'polls:polls_home' %}"><h3>인사조직수준진단</h3></a>
+        <p>인사조직 수준진단이란? 나도 모르게쏘요....</p>
 
     </div>
     <div class="col-sm-6">
-        <h3>Bookmark App</h3>
-        <p>Bookmark is a uniform resource identifier (URI)</p>
+        <h3>Workforce Analytics</h3>
+        <p>난 아는게 없어요...</p>
     </div>
     <div class="col-sm-6">
         <h3>Polls App</h3>
@@ -50,6 +50,6 @@
 
 {% block footer %}
 <footer class="fixed-bottom bg-info">
-    <div class="text-white font-italic text-right mr-5">Copyright %copy; 2020</div>
+    <div class="text-white font-italic text-right mr-5">Copyright 2020. Kwon ki wook. All rights reserved</div>
 </footer>
 {% endblock %}
