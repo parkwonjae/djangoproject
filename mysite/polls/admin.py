@@ -8,12 +8,14 @@ from polls.models import Employee
 
 @admin.register(SelectVariable)
 class SelectVariableAdmin(admin.ModelAdmin):
-    list_display = ('id', 'co_id', 'compassion', 'surface_acting', 'deep_acting',
+    list_display = ('id', 'company_id', 'compassion', 'surface_acting', 'deep_acting',
                     'affective_commitment', 'task_complexity')
-    search_fields = ('co_id',)
+    search_fields = ('company_id',)
 
 
 @admin.register(Employee)
 class EmployeeAdmin(admin.ModelAdmin):
-    list_display = ('id', 'employee_id', 'employee_pw', 'employee_coname', 'co_id')
-    search_fields = ('employee_id', 'employee_coname', 'co_id', 'id')
+    list_display = ('id', 'company_id', 'compassion_1', 'compassion_2', 'surface_acting_1', 'surface_acting_2',
+                    'deep_acting_1', 'deep_acting_2', 'affective_commitment_1', 'affective_commitment_2',
+                    'task_complexity_1', 'task_complexity_2')
+    search_fields = ('company_id',)

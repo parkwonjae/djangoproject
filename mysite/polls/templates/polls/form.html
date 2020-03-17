@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}form.html {% endblock %}
+{% block content %}
+<form action="." method="post">{%csrf_token%}
+    {{form.as_table}}
+    <input type="submit" value="Submit" class="btn btn-primary btn-sm">
+</form>
+
+<br>
+{% if object_list %}
+    {% for object in object_list %}
+        <h2>{{object.company_id}}</h2>
+        <h3>compassion: {{object.compassion}}</h3>
+        <h3>surface_acting: {{object.surface_acting}}</h3>
+        <h3>deep_acting: {{object.deep_acting}}</h3>
+        <h3>affective_commitment: {{object.affective_commitment}}</h3>
+        <h3>task_complexity: {{object.task_complexity}}</h3>
+    {% endfor %}
+
+<h2>makelist {{makelist}}</h2>
+
+{% elif code %}
+<b><i>input code {{code}} Not found </i></b>
+{% endif %}
+{% endblock %}

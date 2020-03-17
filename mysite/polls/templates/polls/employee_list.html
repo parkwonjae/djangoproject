@@ -3,12 +3,7 @@
 {% block title %}employee.html {% endblock %}
 
 {% block content %}
-    <h1>hello</h1>
-    <h1> employee page </h1>
-        <div>
-            {% for person in Employee %}
-                {{person.coname}}
-            {% endfor %}
-        </div>
-
+    <h1>employee page</h1>
+    <h1>일반사원용 설문입니다. 인사담당자에게 받은 당사 코드를 입력하세요</h1>
+    <a href="{% url 'polls:inputcode' %}">inputcode</a>
 {% endblock %}
