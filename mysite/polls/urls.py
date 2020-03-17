@@ -9,4 +9,5 @@ urlpatterns = [
 
     # /polls/employee/inputcode/
     path('employee/inputcode/', views.InputCodeFormView.as_view(), name='inputcode'),
+    path('employee/choiceform/', views.ChoiceFormView.as_view(), name='choice'),
 ]

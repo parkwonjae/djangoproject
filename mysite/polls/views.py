@@ -8,6 +8,7 @@ from config.views import OwnerOnlyMixin
 from django.http import HttpResponseRedirect
 from django.views.generic import FormView
 from polls.forms import InputCodeForm
+from polls.forms import ChoiceForm
 from django.db.models import Q
 
 
@@ -24,7 +25,6 @@ class EmployeeLV(ListView):
 
 
 class EmployerView(LoginRequiredMixin, TemplateView):
-    #success_url = reverse_lazy('polls:employerlist')
     template_name = 'polls/employer_list.html'
 
     def form_valid(self, form):
@@ -60,6 +60,27 @@ class InputCodeFormView(FormView):
         return render(self.request, self.template_name, context)
 
 
+class ChoiceFormView(FormView):
+    form_class = ChoiceForm
+    template_name = 'polls/choiceform.html'
+
+    def form_valid(self, form):
+        like = form.cleaned_data['like']
+        context = {}
+        context['form'] = form
+        context['object_list'] = like
+        return render(self.request, self.template_name, context)
+
+# 인사담당자가 true 체크한 리스트를 뽑아주는 함수 return값은 list 형태
+def truecheck(makelist):
+    truelist = []
+    temp = list(makelist[0].keys())
+    for k in temp:
+        if makelist[0].get(k) ==True:
+            truelist.append(k)
+    return truelist
+
+
 def printlist(makelist):
     temp = list(makelist[0].keys())
     truelist = []
@@ -76,12 +97,3 @@ def printlist(makelist):
             truelist.append(k)
             print("2",makelist[0].get(k))
     print(truelist)
-
-# 인사담당자가 true 체크한 리스트를 뽑아주는 함수 return값은 list 형태
-def truecheck(makelist):
-    truelist = []
-    temp = list(makelist[0].keys())
-    for k in temp:
-        if makelist[0].get(k) ==True:
-            truelist.append(k)
-    return truelist
