@@ -12,21 +12,20 @@ class Company(models.Model):
 
 
 class Employer(models.Model):
-    company_id = models.ForeignKey('Company', on_delete=models.CASCADE())
+    company_id = models.ForeignKey('Company', on_delete=models.CASCADE)
     employer_id = models.CharField(max_length=15)
     employer_age = models.IntegerField()
-    employer_sex = models.ChoiceField()
+    employer_gender = models.ChoiceField()
 
 
 class Polls(models.Model):
-    company_id = models.ForeignKey('Company', on_delete=models.CASCADE())
+    company_id = models.ForeignKey('Company', on_delete=models.CASCADE)
     employ = models.ChoiceField()
 
 
-# 인사담당자가 변수 선택한 테이블
-class Variable(models.Model):
-    company_id = models.ForeignKey('Company', on_delete=models.CASCADE())
-    employ = models.ForeignKey('Polls', on_delete=models.CASCADE())
+class Question(models.Model):
+    company_id = models.ForeignKey('Company', on_delete=models.CASCADE)
+    employ = models.ForeignKey('Polls', on_delete=models.CASCADE)
     compassion = models.BooleanField(default=False)
     surface_acting = models.BooleanField(default=False)
     deep_acting = models.BooleanField(default=False)
@@ -39,15 +38,15 @@ class Variable(models.Model):
     creativity = models.BooleanField(default=False)
 
 
-class Question(models.Model):
-    company_id = models.ForeignKey('Company', on_delete=models.CASCADE())
-    employ = models.ForeignKey('Polls', on_delete=models.CASCADE())
-    compassion = models.ForeignKey('Variable', on_delete=models.CASCADE())
+class Compassion(models.Model):
+    compassion = models.ForeignKey('Question', on_delete=models.CASCADE)
     compassion_1 = models.ChoiceField()
     compassion_2 = models.ChoiceField()
     compassion_3 = models.ChoiceField()
 
-    surface_acting = models.ForeignKey('Variable', on_delete=models.CASCADE())
+
+class SurfaceActing(models.Model):
+    surface_acting = models.ForeignKey('Question', on_delete=models.CASCADE)
     surface_acting_1 = models.ChoiceField()
     surface_acting_2 = models.ChoiceField()
     surface_acting_3 = models.ChoiceField()
@@ -56,13 +55,17 @@ class Question(models.Model):
     surface_acting_6 = models.ChoiceField()
     surface_acting_7 = models.ChoiceField()
 
-    deep_acting = models.ForeignKey('Variable', on_delete=models.CASCADE())
+
+class DeepActing(models.Model):
+    deep_acting = models.ForeignKey('Question', on_delete=models.CASCADE)
     deep_acting_1 = models.ChoiceField()
     deep_acting_2 = models.ChoiceField()
     deep_acting_3 = models.ChoiceField()
     deep_acting_4 = models.ChoiceField()
 
-    affective_commitment = models.ForeignKey('Variable', on_delete=models.CASCADE())
+
+class AffectiveCommitment(models.Model):
+    affective_commitment = models.ForeignKey('Question', on_delete=models.CASCADE)
     affective_commitment_1 = models.ChoiceField()
     affective_commitment_2 = models.ChoiceField()
     affective_commitment_3 = models.ChoiceField()
@@ -72,12 +75,16 @@ class Question(models.Model):
     affective_commitment_7 = models.ChoiceField()
     affective_commitment_8 = models.ChoiceField()
 
-    task_complexity = models.ForeignKey('Variable', on_delete=models.CASCADE())
+
+class TaskComplexity(models.Model):
+    task_complexity = models.ForeignKey('Question', on_delete=models.CASCADE)
     task_complexity_1 = models.ChoiceField()
     task_complexity_2 = models.ChoiceField()
     task_complexity_3 = models.ChoiceField()
 
-    identification_with_leader = models.ForeignKey('Variable', on_delete=models.CASCADE())
+
+class IdentificationWithLeader(models.Model):
+    identification_with_leader = models.ForeignKey('Question', on_delete=models.CASCADE)
     identification_with_leader_1 = models.ChoiceField()
     identification_with_leader_2 = models.ChoiceField()
     identification_with_leader_3 = models.ChoiceField()
@@ -85,7 +92,9 @@ class Question(models.Model):
     identification_with_leader_5 = models.ChoiceField()
     identification_with_leader_6 = models.ChoiceField()
 
-    self_efficacy = models.ForeignKey('Variable', on_delete=models.CASCADE())
+
+class SelfEfficacy(models.Model):
+    self_efficacy = models.ForeignKey('Question', on_delete=models.CASCADE)
     self_efficacy_1 = models.ChoiceField()
     self_efficacy_2 = models.ChoiceField()
     self_efficacy_3 = models.ChoiceField()
@@ -93,21 +102,27 @@ class Question(models.Model):
     self_efficacy_5 = models.ChoiceField()
     self_efficacy_6 = models.ChoiceField()
 
-    job_satisfaction = models.ForeignKey('Variable', on_delete=models.CASCADE())
+
+class JobSatisfaction(models.Model):
+    job_satisfaction = models.ForeignKey('Question', on_delete=models.CASCADE)
     job_satisfaction_1 = models.ChoiceField()
     job_satisfaction_2 = models.ChoiceField()
     job_satisfaction_3 = models.ChoiceField()
     job_satisfaction_4 = models.ChoiceField()
     job_satisfaction_5 = models.ChoiceField()
 
-    willingness_to_take_risks = models.ForeignKey('Variable', on_delete=models.CASCADE())
+
+class WillingnessToTakeRisks(models.Model):
+    willingness_to_take_risks = models.ForeignKey('Question', on_delete=models.CASCADE)
     willingness_to_take_risks_1 = models.ChoiceField()
     willingness_to_take_risks_2 = models.ChoiceField()
     willingness_to_take_risks_3 = models.ChoiceField()
     willingness_to_take_risks_4 = models.ChoiceField()
     willingness_to_take_risks_5 = models.ChoiceField()
 
-    creativity = models.ForeignKey('Variable', on_delete=models.CASCADE())
+
+class Creativity(models.Model):
+    creativity = models.ForeignKey('Question', on_delete=models.CASCADE)
     creativity_1 = models.ChoiceField()
     creativity_2 = models.ChoiceField()
     creativity_3 = models.ChoiceField()
@@ -115,6 +130,9 @@ class Question(models.Model):
     creativity_5 = models.ChoiceField()
     creativity_6 = models.ChoiceField()
 
+
+class EmployerQuestion(models.Model):
+    employ = models.ForeignKey('Polls', on_delete=models.CASCADE)
     # employer questions
     question_1 = models.ChoiceField()
     question_2 = models.ChoiceField()
