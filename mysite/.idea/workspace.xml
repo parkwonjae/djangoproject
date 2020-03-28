@@ -4,7 +4,8 @@
     <list default="true" id="1c84f8fa-c1ff-4706-8322-be9b26721d72" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/polls/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/polls/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polls/templates/polls/employee_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/polls/templates/polls/employee_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polls/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/polls/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polls/templates/polls/choiceform.html" beforeDir="false" afterPath="$PROJECT_DIR$/polls/templates/polls/choiceform.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/polls/templates/polls/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/polls/templates/polls/form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/polls/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/polls/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/polls/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/polls/views.py" afterDir="false" />
@@ -36,11 +37,14 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/polls/templates/polls" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
     <property name="settings.editor.selected.configurable" value="configurable.group.language" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\park\Desktop\wjproject\bookmark\mysite\polls\templates\polls" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\park\Desktop\wjproject\bookmark\mysite\polls\templates\polls" />
       <recent name="C:\Users\park\Desktop\wjproject\bookmark\mysite\polls\templates" />
@@ -67,6 +71,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="387" y="195" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1280.680@0.0.1280.680" timestamp="1584428777170" />
+    <state x="421" y="95" key="FileChooserDialogImpl" timestamp="1584689273373">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="421" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1584689273373" />
     <state x="142" y="0" key="SettingsEditor" timestamp="1584281979040">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -75,13 +83,13 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="93" y="93" width="1095" height="495" key="dock-window-1/0.0.1280.680@0.0.1280.680" timestamp="1584336697762" />
-    <state x="0" y="0" width="620" height="680" key="find.popup" timestamp="1584427119571">
+    <state x="0" y="0" width="620" height="680" key="find.popup" timestamp="1584941689947">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="0" y="0" width="620" height="680" key="find.popup/0.0.1280.680@0.0.1280.680" timestamp="1584427119571" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1584347581930">
+    <state x="0" y="0" width="620" height="680" key="find.popup/0.0.1280.680@0.0.1280.680" timestamp="1584941689947" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1584624313029">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1584347581930" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1584624313029" />
   </component>
 </project>

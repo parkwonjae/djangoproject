@@ -3,14 +3,15 @@ from django.views.generic import ListView
 from django.views.generic import TemplateView
 from polls.models import Employee, SelectVariable
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from config.views import OwnerOnlyMixin
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.views.generic import FormView
-from polls.forms import InputCodeForm
-from polls.forms import ChoiceForm
+from polls.forms import *
+from polls.multiforms import MultiFormsView
 from django.db.models import Q
-
+from django.http import Http404
+from django.views.generic import View
 
 # Create your views here.
 
@@ -55,7 +56,6 @@ class InputCodeFormView(FormView):
         context['form'] = form
         context['code'] = inputcompanycode
         context['object_list'] = selectlist
-        context['makelist'] = makelist
 
         return render(self.request, self.template_name, context)
 
@@ -70,6 +70,9 @@ class ChoiceFormView(FormView):
         context['form'] = form
         context['object_list'] = like
         return render(self.request, self.template_name, context)
+
+
+
 
 # 인사담당자가 true 체크한 리스트를 뽑아주는 함수 return값은 list 형태
 def truecheck(makelist):
@@ -97,3 +100,49 @@ def printlist(makelist):
             truelist.append(k)
             print("2",makelist[0].get(k))
     print(truelist)
+
+'''
+def multiple_forms(request):
+    if request.method == 'POST':
+        compassion_form = CompassionForm(request.POST)
+        surfaceacting_form = SurfaceActingForm(request.POST)
+        if compassion_form.is_valid() or surfaceacting_form.is_valid():
+            # Do the needful
+            return HttpResponseRedirect(reverse('form-redirect'))
+    else:
+        compassion_form = CompassionForm()
+        surfaceacting_form = SurfaceActingForm()
+
+    return render(request, 'polls/multiple_forms.html', {
+        'compassion_form': compassion_form,
+        'surfaceacting_form': surfaceacting_form,
+    })
+'''
+
+
+class MultipleFormsDemoView(MultiFormsView):
+    template_name = 'polls/cbv_multiple_forms.html'
+    form_classes = {
+        'compassion': CompassionForm,
+        'surfaceacting': SurfaceActingForm,
+    }
+    '''
+    success_urls = {
+        'compassion': reverse_lazy('form-redirect'),
+        'surfaceacting': reverse_lazy('form-redirect'),
+    }
+
+    def compassion_form_valid(self, form):
+        form_name = form.cleaned_data.get('action')
+        return HttpResponseRedirect(self.get_success_url(form_name))
+
+    def surfaceacting_form_valid(self, form):
+        form_name = form.cleaned_data.get('action')
+        return HttpResponseRedirect(self.get_success_url(form_name))
+    '''
+
+
+class TestView(View):
+
+    def get(self, request, *args, **kwargs):
+        return HttpResponse('hello, world')

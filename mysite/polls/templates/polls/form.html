@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block title %}form.html {% endblock %}
 {% block content %}
 <form action="." method="post">{%csrf_token%}
@@ -10,15 +12,26 @@
 <br>
 {% if object_list %}
     {% for object in object_list %}
-        <h2>{{object.company_id}}</h2>
-        <h3>compassion: {{object.compassion}}</h3>
-        <h3>surface_acting: {{object.surface_acting}}</h3>
-        <h3>deep_acting: {{object.deep_acting}}</h3>
-        <h3>affective_commitment: {{object.affective_commitment}}</h3>
-        <h3>task_complexity: {{object.task_complexity}}</h3>
+        {% if object.company_id %}
+            <h2>comany_id : {{object.company_id}}</h2>
+        {% endif %}
+        {% if object.compassion %}
+            <h3>compassion : {{object.compassion}}</h3>
+        {% endif %}
+        {% if object.surface_acting %}
+            <h3>surface_acting: {{object.surface_acting}}</h3>
+        {% endif %}
+        {% if object.deep_acting %}
+            <h3>deep_acting: {{object.deep_acting}}</h3>
+        {% endif %}
+        {% if object.affective_commitment %}
+            <h3>affective_commitment: {{object.affective_commitment}}</h3>
+        {% endif %}
+        {% if object.task_complexity%}
+            <h3>task_complexity: {{object.task_complexity}}</h3>
+        {% endif %}
+        {{object}}
     {% endfor %}
-
-<h2>makelist {{makelist}}</h2>
 
 {% elif code %}
 <b><i>input code {{code}} Not found </i></b>
