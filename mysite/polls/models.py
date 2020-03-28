@@ -15,12 +15,19 @@ class Employer(models.Model):
     company_id = models.ForeignKey('Company', on_delete=models.CASCADE)
     employer_id = models.CharField(max_length=15)
     employer_age = models.IntegerField()
-    employer_gender = models.ChoiceField()
+    gender_choices = (
+        ('1', '남'),
+        ('2', '여')
+    )
+    employer_gender = models.ChoiceField(choices=gender_choices)
 
 
 class Polls(models.Model):
     company_id = models.ForeignKey('Company', on_delete=models.CASCADE)
-    employ = models.ChoiceField()
+    employ = models.ChoiceField(
+        ('1', '인사담당자'),
+        ('2', '일반사원')
+    )
 
 
 class Question(models.Model):
@@ -39,118 +46,195 @@ class Question(models.Model):
 
 
 class Compassion(models.Model):
-    compassion = models.ForeignKey('Question', on_delete=models.CASCADE)
-    compassion_1 = models.ChoiceField()
-    compassion_2 = models.ChoiceField()
-    compassion_3 = models.ChoiceField()
+    question = models.ForeignKey('Question', on_delete=models.CASCADE)
+    num_choices = (
+        ('1', '1'),
+        ('2', '2'),
+        ('3', '3'),
+        ('4', '4'),
+        ('5', '5'),
+    )
+    compassion_1 = models.ChoiceField(choices=num_choices)
+    compassion_2 = models.ChoiceField(choices=num_choices)
+    compassion_3 = models.ChoiceField(choices=num_choices)
 
 
 class SurfaceActing(models.Model):
-    surface_acting = models.ForeignKey('Question', on_delete=models.CASCADE)
-    surface_acting_1 = models.ChoiceField()
-    surface_acting_2 = models.ChoiceField()
-    surface_acting_3 = models.ChoiceField()
-    surface_acting_4 = models.ChoiceField()
-    surface_acting_5 = models.ChoiceField()
-    surface_acting_6 = models.ChoiceField()
-    surface_acting_7 = models.ChoiceField()
+    question = models.ForeignKey('Question', on_delete=models.CASCADE)
+    num_choices = (
+        ('1', '1'),
+        ('2', '2'),
+        ('3', '3'),
+        ('4', '4'),
+        ('5', '5'),
+    )
+    surface_acting_1 = models.ChoiceField(choices=num_choices)
+    surface_acting_2 = models.ChoiceField(choices=num_choices)
+    surface_acting_3 = models.ChoiceField(choices=num_choices)
+    surface_acting_4 = models.ChoiceField(choices=num_choices)
+    surface_acting_5 = models.ChoiceField(choices=num_choices)
+    surface_acting_6 = models.ChoiceField(choices=num_choices)
+    surface_acting_7 = models.ChoiceField(choices=num_choices)
 
 
 class DeepActing(models.Model):
-    deep_acting = models.ForeignKey('Question', on_delete=models.CASCADE)
-    deep_acting_1 = models.ChoiceField()
-    deep_acting_2 = models.ChoiceField()
-    deep_acting_3 = models.ChoiceField()
-    deep_acting_4 = models.ChoiceField()
+    question = models.ForeignKey('Question', on_delete=models.CASCADE)
+    num_choices = (
+        ('1', '1'),
+        ('2', '2'),
+        ('3', '3'),
+        ('4', '4'),
+        ('5', '5'),
+    )
+    deep_acting_1 = models.ChoiceField(choices=num_choices)
+    deep_acting_2 = models.ChoiceField(choices=num_choices)
+    deep_acting_3 = models.ChoiceField(choices=num_choices)
+    deep_acting_4 = models.ChoiceField(choices=num_choices)
 
 
 class AffectiveCommitment(models.Model):
-    affective_commitment = models.ForeignKey('Question', on_delete=models.CASCADE)
-    affective_commitment_1 = models.ChoiceField()
-    affective_commitment_2 = models.ChoiceField()
-    affective_commitment_3 = models.ChoiceField()
-    affective_commitment_4 = models.ChoiceField()
-    affective_commitment_5 = models.ChoiceField()
-    affective_commitment_6 = models.ChoiceField()
-    affective_commitment_7 = models.ChoiceField()
-    affective_commitment_8 = models.ChoiceField()
+    question = models.ForeignKey('Question', on_delete=models.CASCADE)
+    num_choices = (
+        ('1', '1'),
+        ('2', '2'),
+        ('3', '3'),
+        ('4', '4'),
+        ('5', '5'),
+    )
+    affective_commitment_1 = models.ChoiceField(choices=num_choices)
+    affective_commitment_2 = models.ChoiceField(choices=num_choices)
+    affective_commitment_3 = models.ChoiceField(choices=num_choices)
+    affective_commitment_4 = models.ChoiceField(choices=num_choices)
+    affective_commitment_5 = models.ChoiceField(choices=num_choices)
+    affective_commitment_6 = models.ChoiceField(choices=num_choices)
+    affective_commitment_7 = models.ChoiceField(choices=num_choices)
+    affective_commitment_8 = models.ChoiceField(choices=num_choices)
 
 
 class TaskComplexity(models.Model):
-    task_complexity = models.ForeignKey('Question', on_delete=models.CASCADE)
-    task_complexity_1 = models.ChoiceField()
-    task_complexity_2 = models.ChoiceField()
-    task_complexity_3 = models.ChoiceField()
+    question = models.ForeignKey('Question', on_delete=models.CASCADE)
+    num_choices = (
+        ('1', '1'),
+        ('2', '2'),
+        ('3', '3'),
+        ('4', '4'),
+        ('5', '5'),
+    )
+    task_complexity_1 = models.ChoiceField(choices=num_choices)
+    task_complexity_2 = models.ChoiceField(choices=num_choices)
+    task_complexity_3 = models.ChoiceField(choices=num_choices)
 
 
 class IdentificationWithLeader(models.Model):
-    identification_with_leader = models.ForeignKey('Question', on_delete=models.CASCADE)
-    identification_with_leader_1 = models.ChoiceField()
-    identification_with_leader_2 = models.ChoiceField()
-    identification_with_leader_3 = models.ChoiceField()
-    identification_with_leader_4 = models.ChoiceField()
-    identification_with_leader_5 = models.ChoiceField()
-    identification_with_leader_6 = models.ChoiceField()
+    question = models.ForeignKey('Question', on_delete=models.CASCADE)
+    num_choices = (
+        ('1', '1'),
+        ('2', '2'),
+        ('3', '3'),
+        ('4', '4'),
+        ('5', '5'),
+    )
+    identification_with_leader_1 = models.ChoiceField(choices=num_choices)
+    identification_with_leader_2 = models.ChoiceField(choices=num_choices)
+    identification_with_leader_3 = models.ChoiceField(choices=num_choices)
+    identification_with_leader_4 = models.ChoiceField(choices=num_choices)
+    identification_with_leader_5 = models.ChoiceField(choices=num_choices)
+    identification_with_leader_6 = models.ChoiceField(choices=num_choices)
 
 
 class SelfEfficacy(models.Model):
-    self_efficacy = models.ForeignKey('Question', on_delete=models.CASCADE)
-    self_efficacy_1 = models.ChoiceField()
-    self_efficacy_2 = models.ChoiceField()
-    self_efficacy_3 = models.ChoiceField()
-    self_efficacy_4 = models.ChoiceField()
-    self_efficacy_5 = models.ChoiceField()
-    self_efficacy_6 = models.ChoiceField()
+    question = models.ForeignKey('Question', on_delete=models.CASCADE)
+    num_choices = (
+        ('1', '1'),
+        ('2', '2'),
+        ('3', '3'),
+        ('4', '4'),
+        ('5', '5'),
+    )
+    self_efficacy_1 = models.ChoiceField(choices=num_choices)
+    self_efficacy_2 = models.ChoiceField(choices=num_choices)
+    self_efficacy_3 = models.ChoiceField(choices=num_choices)
+    self_efficacy_4 = models.ChoiceField(choices=num_choices)
+    self_efficacy_5 = models.ChoiceField(choices=num_choices)
+    self_efficacy_6 = models.ChoiceField(choices=num_choices)
 
 
 class JobSatisfaction(models.Model):
-    job_satisfaction = models.ForeignKey('Question', on_delete=models.CASCADE)
-    job_satisfaction_1 = models.ChoiceField()
-    job_satisfaction_2 = models.ChoiceField()
-    job_satisfaction_3 = models.ChoiceField()
-    job_satisfaction_4 = models.ChoiceField()
-    job_satisfaction_5 = models.ChoiceField()
+    question = models.ForeignKey('Question', on_delete=models.CASCADE)
+    num_choices = (
+        ('1', '1'),
+        ('2', '2'),
+        ('3', '3'),
+        ('4', '4'),
+        ('5', '5'),
+    )
+    job_satisfaction_1 = models.ChoiceField(choices=num_choices)
+    job_satisfaction_2 = models.ChoiceField(choices=num_choices)
+    job_satisfaction_3 = models.ChoiceField(choices=num_choices)
+    job_satisfaction_4 = models.ChoiceField(choices=num_choices)
+    job_satisfaction_5 = models.ChoiceField(choices=num_choices)
 
 
 class WillingnessToTakeRisks(models.Model):
-    willingness_to_take_risks = models.ForeignKey('Question', on_delete=models.CASCADE)
-    willingness_to_take_risks_1 = models.ChoiceField()
-    willingness_to_take_risks_2 = models.ChoiceField()
-    willingness_to_take_risks_3 = models.ChoiceField()
-    willingness_to_take_risks_4 = models.ChoiceField()
-    willingness_to_take_risks_5 = models.ChoiceField()
+    question = models.ForeignKey('Question', on_delete=models.CASCADE)
+    num_choices = (
+        ('1', '1'),
+        ('2', '2'),
+        ('3', '3'),
+        ('4', '4'),
+        ('5', '5'),
+    )
+    willingness_to_take_risks_1 = models.ChoiceField(choices=num_choices)
+    willingness_to_take_risks_2 = models.ChoiceField(choices=num_choices)
+    willingness_to_take_risks_3 = models.ChoiceField(choices=num_choices)
+    willingness_to_take_risks_4 = models.ChoiceField(choices=num_choices)
+    willingness_to_take_risks_5 = models.ChoiceField(choices=num_choices)
 
 
 class Creativity(models.Model):
-    creativity = models.ForeignKey('Question', on_delete=models.CASCADE)
-    creativity_1 = models.ChoiceField()
-    creativity_2 = models.ChoiceField()
-    creativity_3 = models.ChoiceField()
-    creativity_4 = models.ChoiceField()
-    creativity_5 = models.ChoiceField()
-    creativity_6 = models.ChoiceField()
+    question = models.ForeignKey('Question', on_delete=models.CASCADE)
+    num_choices = (
+        ('1', '1'),
+        ('2', '2'),
+        ('3', '3'),
+        ('4', '4'),
+        ('5', '5'),
+    )
+    creativity_1 = models.ChoiceField(choices=num_choices)
+    creativity_2 = models.ChoiceField(choices=num_choices)
+    creativity_3 = models.ChoiceField(choices=num_choices)
+    creativity_4 = models.ChoiceField(choices=num_choices)
+    creativity_5 = models.ChoiceField(choices=num_choices)
+    creativity_6 = models.ChoiceField(choices=num_choices)
 
 
 class EmployerQuestion(models.Model):
     employ = models.ForeignKey('Polls', on_delete=models.CASCADE)
+    num_choices = (
+        ('1', '1'),
+        ('2', '2'),
+        ('3', '3'),
+        ('4', '4'),
+        ('5', '5'),
+    )
     # employer questions
-    question_1 = models.ChoiceField()
-    question_2 = models.ChoiceField()
-    question_3 = models.ChoiceField()
-    question_4 = models.ChoiceField()
-    question_5 = models.ChoiceField()
-    question_6 = models.ChoiceField()
-    question_7 = models.ChoiceField()
-    question_8 = models.ChoiceField()
-    question_9 = models.ChoiceField()
-    question_10 = models.ChoiceField()
-    question_11 = models.ChoiceField()
-    question_12 = models.ChoiceField()
-    question_13 = models.ChoiceField()
-    question_14 = models.ChoiceField()
-    question_15 = models.ChoiceField()
-    question_16 = models.ChoiceField()
-    question_17 = models.ChoiceField()
-    question_18 = models.ChoiceField()
-    question_19 = models.ChoiceField()
-    question_20 = models.ChoiceField()
+    question_1 = models.ChoiceField(choices=num_choices)
+    question_2 = models.ChoiceField(choices=num_choices)
+    question_3 = models.ChoiceField(choices=num_choices)
+    question_4 = models.ChoiceField(choices=num_choices)
+    question_5 = models.ChoiceField(choices=num_choices)
+    question_6 = models.ChoiceField(choices=num_choices)
+    question_7 = models.ChoiceField(choices=num_choices)
+    question_8 = models.ChoiceField(choices=num_choices)
+    question_9 = models.ChoiceField(choices=num_choices)
+    question_10 = models.ChoiceField(choices=num_choices)
+    question_11 = models.ChoiceField(choices=num_choices)
+    question_12 = models.ChoiceField(choices=num_choices)
+    question_13 = models.ChoiceField(choices=num_choices)
+    question_14 = models.ChoiceField(choices=num_choices)
+    question_15 = models.ChoiceField(choices=num_choices)
+    question_16 = models.ChoiceField(choices=num_choices)
+    question_17 = models.ChoiceField(choices=num_choices)
+    question_18 = models.ChoiceField(choices=num_choices)
+    question_19 = models.ChoiceField(choices=num_choices)
+    question_20 = models.ChoiceField(choices=num_choices)
