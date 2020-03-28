@@ -3,6 +3,14 @@ from django.db import models
 
 # Create your models here.
 
+num_choices = (
+    ('1', 1),
+    ('2', 2),
+    ('3', 3),
+    ('4', 4),
+    ('5', 5),
+)
+
 
 class Company(models.Model):
     company_id = models.CharField(max_length=15)
@@ -47,13 +55,7 @@ class Question(models.Model):
 
 class Compassion(models.Model):
     question = models.ForeignKey('Question', on_delete=models.CASCADE)
-    num_choices = (
-        ('1', '1'),
-        ('2', '2'),
-        ('3', '3'),
-        ('4', '4'),
-        ('5', '5'),
-    )
+
     compassion_1 = models.ChoiceField(choices=num_choices)
     compassion_2 = models.ChoiceField(choices=num_choices)
     compassion_3 = models.ChoiceField(choices=num_choices)
@@ -61,13 +63,7 @@ class Compassion(models.Model):
 
 class SurfaceActing(models.Model):
     question = models.ForeignKey('Question', on_delete=models.CASCADE)
-    num_choices = (
-        ('1', '1'),
-        ('2', '2'),
-        ('3', '3'),
-        ('4', '4'),
-        ('5', '5'),
-    )
+
     surface_acting_1 = models.ChoiceField(choices=num_choices)
     surface_acting_2 = models.ChoiceField(choices=num_choices)
     surface_acting_3 = models.ChoiceField(choices=num_choices)
@@ -79,13 +75,7 @@ class SurfaceActing(models.Model):
 
 class DeepActing(models.Model):
     question = models.ForeignKey('Question', on_delete=models.CASCADE)
-    num_choices = (
-        ('1', '1'),
-        ('2', '2'),
-        ('3', '3'),
-        ('4', '4'),
-        ('5', '5'),
-    )
+
     deep_acting_1 = models.ChoiceField(choices=num_choices)
     deep_acting_2 = models.ChoiceField(choices=num_choices)
     deep_acting_3 = models.ChoiceField(choices=num_choices)
@@ -94,13 +84,7 @@ class DeepActing(models.Model):
 
 class AffectiveCommitment(models.Model):
     question = models.ForeignKey('Question', on_delete=models.CASCADE)
-    num_choices = (
-        ('1', '1'),
-        ('2', '2'),
-        ('3', '3'),
-        ('4', '4'),
-        ('5', '5'),
-    )
+
     affective_commitment_1 = models.ChoiceField(choices=num_choices)
     affective_commitment_2 = models.ChoiceField(choices=num_choices)
     affective_commitment_3 = models.ChoiceField(choices=num_choices)
@@ -113,13 +97,7 @@ class AffectiveCommitment(models.Model):
 
 class TaskComplexity(models.Model):
     question = models.ForeignKey('Question', on_delete=models.CASCADE)
-    num_choices = (
-        ('1', '1'),
-        ('2', '2'),
-        ('3', '3'),
-        ('4', '4'),
-        ('5', '5'),
-    )
+
     task_complexity_1 = models.ChoiceField(choices=num_choices)
     task_complexity_2 = models.ChoiceField(choices=num_choices)
     task_complexity_3 = models.ChoiceField(choices=num_choices)
@@ -127,13 +105,7 @@ class TaskComplexity(models.Model):
 
 class IdentificationWithLeader(models.Model):
     question = models.ForeignKey('Question', on_delete=models.CASCADE)
-    num_choices = (
-        ('1', '1'),
-        ('2', '2'),
-        ('3', '3'),
-        ('4', '4'),
-        ('5', '5'),
-    )
+
     identification_with_leader_1 = models.ChoiceField(choices=num_choices)
     identification_with_leader_2 = models.ChoiceField(choices=num_choices)
     identification_with_leader_3 = models.ChoiceField(choices=num_choices)
@@ -144,13 +116,7 @@ class IdentificationWithLeader(models.Model):
 
 class SelfEfficacy(models.Model):
     question = models.ForeignKey('Question', on_delete=models.CASCADE)
-    num_choices = (
-        ('1', '1'),
-        ('2', '2'),
-        ('3', '3'),
-        ('4', '4'),
-        ('5', '5'),
-    )
+
     self_efficacy_1 = models.ChoiceField(choices=num_choices)
     self_efficacy_2 = models.ChoiceField(choices=num_choices)
     self_efficacy_3 = models.ChoiceField(choices=num_choices)
@@ -161,13 +127,7 @@ class SelfEfficacy(models.Model):
 
 class JobSatisfaction(models.Model):
     question = models.ForeignKey('Question', on_delete=models.CASCADE)
-    num_choices = (
-        ('1', '1'),
-        ('2', '2'),
-        ('3', '3'),
-        ('4', '4'),
-        ('5', '5'),
-    )
+
     job_satisfaction_1 = models.ChoiceField(choices=num_choices)
     job_satisfaction_2 = models.ChoiceField(choices=num_choices)
     job_satisfaction_3 = models.ChoiceField(choices=num_choices)
@@ -177,13 +137,7 @@ class JobSatisfaction(models.Model):
 
 class WillingnessToTakeRisks(models.Model):
     question = models.ForeignKey('Question', on_delete=models.CASCADE)
-    num_choices = (
-        ('1', '1'),
-        ('2', '2'),
-        ('3', '3'),
-        ('4', '4'),
-        ('5', '5'),
-    )
+
     willingness_to_take_risks_1 = models.ChoiceField(choices=num_choices)
     willingness_to_take_risks_2 = models.ChoiceField(choices=num_choices)
     willingness_to_take_risks_3 = models.ChoiceField(choices=num_choices)
@@ -193,13 +147,7 @@ class WillingnessToTakeRisks(models.Model):
 
 class Creativity(models.Model):
     question = models.ForeignKey('Question', on_delete=models.CASCADE)
-    num_choices = (
-        ('1', '1'),
-        ('2', '2'),
-        ('3', '3'),
-        ('4', '4'),
-        ('5', '5'),
-    )
+
     creativity_1 = models.ChoiceField(choices=num_choices)
     creativity_2 = models.ChoiceField(choices=num_choices)
     creativity_3 = models.ChoiceField(choices=num_choices)
@@ -210,13 +158,7 @@ class Creativity(models.Model):
 
 class EmployerQuestion(models.Model):
     employ = models.ForeignKey('Polls', on_delete=models.CASCADE)
-    num_choices = (
-        ('1', '1'),
-        ('2', '2'),
-        ('3', '3'),
-        ('4', '4'),
-        ('5', '5'),
-    )
+
     # employer questions
     question_1 = models.ChoiceField(choices=num_choices)
     question_2 = models.ChoiceField(choices=num_choices)
