@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.urls import path, include
 from config.views import HomeView
 from config.views import UserCreateView, UserCreateDoneTV
-#from bookmark.views import BookmarkLV, BookmarkDV
 
 
 urlpatterns = [
@@ -29,6 +28,7 @@ urlpatterns = [
     path('bookmark/', include('bookmark.urls')),
     path('blog/', include('blog.urls')),
     path('polls/', include('polls.urls')),
+
 
     #path('bookmark/', BookmarkLV.as_view(), name='index'),
     #path('bookmark/<int:pk>', BookmarkDV.as_view(), name='detail'),

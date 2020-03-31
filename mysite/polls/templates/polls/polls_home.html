@@ -4,9 +4,14 @@
 
 {% block content %}
 <h1>hello</h1>
-<ul>
+{% comment %}
+        <!--
     <h2><li><a href="{% url 'polls:employeelist' %}">일반사원</a></li></h2>
-    <h2><li><a href="{% url 'polls:employerlist' %}">인사담당자용</a></li></h2>
+    -->
+{% endcomment %}
+
+<ul>
+    <h2><li><a href="{% url 'polls:employer' %}">인사담당자용</a></li></h2>
 </ul>
 
 {% endblock %}

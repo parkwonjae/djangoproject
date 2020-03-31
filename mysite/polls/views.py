@@ -1,16 +1,13 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 from django.views.generic import TemplateView
-from polls.models import Employee, SelectVariable
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.urls import reverse_lazy, reverse
 from config.views import OwnerOnlyMixin
 from django.http import HttpResponseRedirect, HttpResponse
 from django.views.generic import FormView
 from polls.forms import *
 from polls.multiforms import MultiFormsView
 from django.db.models import Q
-from django.http import Http404
 from django.views.generic import View
 
 # Create your views here.
@@ -20,17 +17,24 @@ class PollsHomeView(TemplateView):
     template_name = 'polls/polls_home.html'
 
 
+'''
 class EmployeeLV(ListView):
     model = Employee
     context_object_name = 'Employees'
+'''
 
 
-class EmployerView(LoginRequiredMixin, TemplateView):
+class EmployerView(LoginRequiredMixin, FormView):
     template_name = 'polls/employer_list.html'
+    form_class = ChoiceFormTest
 
+
+
+'''
     def form_valid(self, form):
         form.instance.owner = self.request.user
         return super().form_valid(form)
+'''
 
 
 class InputCodeFormView(FormView):

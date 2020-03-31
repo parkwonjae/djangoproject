@@ -1,5 +1,5 @@
 from django import forms
-from .models import Employee
+from polls.models import EmployerQuestion
 
 
 class InputCodeForm(forms.Form):
@@ -12,6 +12,13 @@ class ChoiceForm(forms.Form):
     ]
     like = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect)
     test = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect)
+
+
+class ChoiceFormTest(forms.ModelForm):
+    class Meta:
+        model = EmployerQuestion
+        fields = '__all__'
+        exclude = ('company_id', 'employer_id')
 
 
 class MultipleForm(forms.Form):
@@ -34,10 +41,3 @@ class SurfaceActingForm(MultipleForm):
     surface_acting_2 = forms.ChoiceField(choices=Choice, widget=forms.RadioSelect)
 
 
-class ContactForm(MultipleForm):
-    title = forms.CharField(max_length=150)
-    message = forms.CharField(max_length=200, widget=forms.TextInput)
-
-
-class SubscriptionForm(MultipleForm):
-    email = forms.EmailField()
