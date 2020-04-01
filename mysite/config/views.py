@@ -3,6 +3,7 @@ from django.views.generic import CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import AccessMixin
+from .forms import CreateEmployerForm
 
 
 class HomeView(TemplateView):
@@ -15,8 +16,18 @@ class UserCreateView(CreateView):
     success_url = reverse_lazy('register_done')
 
 
+class EmployerCreateView(CreateView):
+    template_name = 'registration/create_employer.html'
+    form_class = CreateEmployerForm
+    success_url = reverse_lazy('create_employer_done')
+
+
 class UserCreateDoneTV(TemplateView):
     template_name = 'registration/register_done.html'
+
+
+class EmployerCreateDone(TemplateView):
+    template_name = 'registration/create_employer_done.html'
 
 
 class OwnerOnlyMixin(AccessMixin):

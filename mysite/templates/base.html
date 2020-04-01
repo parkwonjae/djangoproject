@@ -59,9 +59,12 @@
                 </li>
             </ul>
 
+            {% comment %}
             <form class="form-inline my-2" action="" method="post">{% csrf_token %}
                 <input class="form-control mr-sm-2" type="search" placeholder="global search" name="search_word">
             </form>
+            {% endcomment %}
+
             <ul class="navbar-nav ml-5 mr-5">
                 <li class="nav-item dropdown mx-1 btn btn-primary">
                     {% if user.is_active %}
@@ -79,6 +82,7 @@
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="{% url 'login' %}">Login</a>
                         <a class="dropdown-item" href="{% url 'register' %}">Register</a>
+                        <a class="dropdown-item" href="{% url 'employer_signup' %}">Employer</a>
                     </div>
                     {% endif %}
                 </li>
