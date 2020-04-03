@@ -28,6 +28,9 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+# 'bookmark.apps.BookmarkConfig',
+# 'blog.apps.BlogConfig',
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -35,8 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bookmark.apps.BookmarkConfig',
-    'blog.apps.BlogConfig',
+
     'polls.apps.PollsConfig',
     'widget_tweaks'
 ]

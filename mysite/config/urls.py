@@ -24,9 +24,10 @@ urlpatterns = [
     path('', HomeView.as_view(), name='home'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/register/', UserCreateView.as_view(), name='register'),
+    #path('accounts/register_test/', UserCreateTestView.as_view(), name='register_test'),
     path('accounts/register/done/', UserCreateDoneTV.as_view(), name='register_done'),
-    path('bookmark/', include('bookmark.urls')),
-    path('blog/', include('blog.urls')),
+    #path('bookmark/', include('bookmark.urls')),
+    #path('blog/', include('blog.urls')),
     path('polls/', include('polls.urls')),
 
 

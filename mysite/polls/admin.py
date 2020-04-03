@@ -13,6 +13,7 @@ from polls.models import SelfEfficacy
 from polls.models import JobSatisfaction
 from polls.models import WillingnessToTakeRisks
 from polls.models import Creativity
+from polls.models import ComToEmployer
 
 # Register your models here.
 
@@ -25,7 +26,7 @@ class CompanyAdmin(admin.ModelAdmin):
 
 @admin.register(Employer)
 class EmployerAdmin(admin.ModelAdmin):
-    list_display = ('company_id', 'employer_id', 'employer_age', 'employer_gender')
+    list_display = ('company_id', 'employer_id', 'employer_age', 'employer_gender', 'user')
 
 
 @admin.register(SelectAbility)
@@ -33,6 +34,11 @@ class SelectAbilityAdmin(admin.ModelAdmin):
     list_display = ('company_id', 'compassion', 'surface_acting', 'deep_acting', 'affective_commitment',
                     'task_complexity', 'identification_with_leader', 'self_efficacy', 'job_satisfaction',
                     'willingness_to_take_risks', 'creativity')
+
+
+@admin.register(ComToEmployer)
+class ComTOEmployer(admin.ModelAdmin):
+    list_display = ('company_id', 'employer_id')
 
 
 @admin.register(EmployerQuestion)
