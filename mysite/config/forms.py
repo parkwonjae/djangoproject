@@ -1,7 +1,6 @@
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
-<<<<<<< HEAD
 from polls.models import Employer
 from polls.models import Company
 
@@ -16,9 +15,6 @@ class EmployerForm(forms.ModelForm):
     class Meta:
         model = Employer
         fields = '__all__'
-
-
-=======
 
 
 class CreateEmployerForm(UserCreationForm):
@@ -45,4 +41,3 @@ class CreateEmployerForm(UserCreationForm):
         if commit:
             user.save()
         return user
->>>>>>> cf4cb7f497e2ae9113f34b33bac71ca4212e89cc
