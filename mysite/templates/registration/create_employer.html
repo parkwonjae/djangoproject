@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}create_employer.html {% endblock %}
+{% block content %}
+<h1> 인사담당자 회원가입 </h1>
+<form method="post" action="{% url 'employer_signup' %}">{% csrf_token %}
+    {{form.as_p}}
+    <button type = "submit">가입</button>
+</form>
+{% endblock %}

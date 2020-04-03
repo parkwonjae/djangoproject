@@ -31,6 +31,14 @@
                 </li>
             </ul>
 
+<<<<<<< HEAD
+=======
+            {% comment %}
+            <form class="form-inline my-2" action="" method="post">{% csrf_token %}
+                <input class="form-control mr-sm-2" type="search" placeholder="global search" name="search_word">
+            </form>
+            {% endcomment %}
+>>>>>>> cf4cb7f497e2ae9113f34b33bac71ca4212e89cc
 
             <ul class="navbar-nav ml-5 mr-5">
                 <li class="nav-item dropdown mx-1 btn btn-primary">
@@ -49,6 +57,7 @@
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="{% url 'login' %}">Login</a>
                         <a class="dropdown-item" href="{% url 'register' %}">Register</a>
+                        <a class="dropdown-item" href="{% url 'employer_signup' %}">Employer</a>
                     </div>
                     {% endif %}
                 </li>
