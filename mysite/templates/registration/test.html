@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}test.html {% endblock %}
+
+{% block content%}
+
+<form method="POST" action="{% url 'test'%}">
+    {% csrf_token%}
+    {{employer_form.as_p}}
+    <br>
+    {{company_form.as_p}}
+    <br>
+    {{user_form.as_p}}
+
+    <input type="submit" value="제출">
+</form>
+
+{% endblock %}

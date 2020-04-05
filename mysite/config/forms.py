@@ -9,12 +9,19 @@ class CompanyForm(forms.ModelForm):
     class Meta:
         model = Company
         fields = '__all__'
+        exclude = ['company_id',]
 
 
 class EmployerForm(forms.ModelForm):
     class Meta:
         model = Employer
         fields = '__all__'
+
+
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('username', 'password')
 
 
 class CreateEmployerForm(UserCreationForm):

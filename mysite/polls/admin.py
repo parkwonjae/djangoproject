@@ -26,7 +26,7 @@ class CompanyAdmin(admin.ModelAdmin):
 
 @admin.register(Employer)
 class EmployerAdmin(admin.ModelAdmin):
-    list_display = ('company_id', 'employer_id', 'employer_age', 'employer_gender', 'user')
+    list_display = ('employer_id', 'employer_age', 'employer_gender', 'user')
 
 
 @admin.register(SelectAbility)

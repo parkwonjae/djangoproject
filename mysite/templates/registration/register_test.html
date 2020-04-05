@@ -5,7 +5,18 @@
 {% block content %}
 <form method="post" action="{% url 'register_test'%}">
     {% csrf_token %}
-    {{form.as_p}}
+    username :
+    <input name="username"type="text">
+    password :
+    <input name="password1" type="password">
+    confirm pw:
+    <input name="password2" type="password">
+    em id :
+    <input name="employer_id" type="text">
+    em age :
+    <input name="employer_age" type="number">
+    em gender :
+    <input name="employer_gender" type="text">
     <button type = "submit">회원가입</button>
 
 </form>

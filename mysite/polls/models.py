@@ -1,8 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
 # Create your models here.
+
 
 num_choices = (
     (1, '1'),
@@ -31,7 +34,6 @@ class Company(models.Model):
 
 # employer information
 class Employer(models.Model):
-    company_id = models.ForeignKey('Company', on_delete=models.CASCADE)
     employer_id = models.CharField(max_length=15)
     employer_age = models.IntegerField()
     employer_gender = models.CharField(max_length=6, choices=gender_choices)
