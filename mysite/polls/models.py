@@ -1,7 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.db.models.signals import post_save
-from django.dispatch import receiver
 
 
 # Create your models here.
@@ -44,13 +42,13 @@ class Employer(models.Model):
 
 
 class ComToEmployer(models.Model):
-    company_id = models.ForeignKey('Company', on_delete=models.CASCADE)
+    company_id = models.ForeignKey('Company', on_delete=models.CASCADE, db_column='company_id')
     employer_id = models.OneToOneField('Employer', on_delete=models.CASCADE)
 
 
 # employer select abilities
 class SelectAbility(models.Model):
-    company_id = models.OneToOneField('Company', on_delete=models.CASCADE)
+    company_id = models.OneToOneField('Company', on_delete=models.CASCADE, db_column='company_id')
     compassion = models.BooleanField(default=False)
     surface_acting = models.BooleanField(default=False)
     deep_acting = models.BooleanField(default=False)
@@ -63,8 +61,13 @@ class SelectAbility(models.Model):
     creativity = models.BooleanField(default=False)
 
     def __str__(self):
-        return '{} compassion : {}, surface_acting: {}, deep_acting: {} '.format(
-            self.company_id, self.compassion, self.surface_acting, self.deep_acting
+        return '{} \
+        compassion : {}, surface_acting: {}, deep_acting: {}, affective_commitment: {} \
+        task_complexity:{}, identification_with_leader:{}, self_efficacy:{}, job_satisfaction:{} \
+        willingness_to_take_risks:{}, creativity:{}'.format(
+            self.company_id, self.compassion, self.surface_acting, self.deep_acting,
+            self.affective_commitment, self.task_complexity, self.identification_with_leader, self.self_efficacy,
+            self.job_satisfaction, self.willingness_to_take_risks, self.creativity
         )
 
 
@@ -184,7 +187,6 @@ class Creativity(models.Model):
 class EmployerQuestion(models.Model):
     company_id = models.ForeignKey('Company', on_delete=models.CASCADE)
     employer_id = models.OneToOneField('Employer', on_delete=models.CASCADE)
-
     # employer questions
     question_1 = models.IntegerField(choices=num_choices)
     question_2 = models.IntegerField(choices=num_choices)

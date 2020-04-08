@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title%} user.html {% endblock %}
+
+{% block content %}
+<form method="post" action="{% url 'employersignup' %}">
+    {% csrf_token %}
+    {{employer_form}}
+    {{company_form}}
+    <button type="submit">인사담당자</button>
+</form>
+{% endblock %}

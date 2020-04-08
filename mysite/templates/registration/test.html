@@ -9,8 +9,13 @@
     <br>
     {{company_form.as_p}}
     <br>
-    {{user_form.as_p}}
+    <p>user : {{user}}
+    <p> username : {{user.get_username}}
+    <p></p>
 
+
+    <p>is_active : {{user.is_active}}
+    <p>user id : {{user.id}}
     <input type="submit" value="제출">
 </form>
 

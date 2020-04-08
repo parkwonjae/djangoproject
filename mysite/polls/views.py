@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
 from django.views.generic import ListView
 from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -10,6 +10,10 @@ from polls.multiforms import MultiFormsView
 from django.db.models import Q
 from django.views.generic import View
 
+from django.contrib.auth.decorators import login_required
+from polls.forms import EmployerQuestionForm
+from polls.models import SelectAbility
+
 # Create your views here.
 
 
@@ -17,17 +21,30 @@ class PollsHomeView(TemplateView):
     template_name = 'polls/polls_home.html'
 
 
-'''
-class EmployeeLV(ListView):
-    model = Employee
-    context_object_name = 'Employees'
-'''
+class EmployeeView(TemplateView):
+    template_name = 'polls/employee_list.html'
 
-
+'''
 class EmployerView(LoginRequiredMixin, FormView):
     template_name = 'polls/employer_list.html'
     form_class = ChoiceFormTest
+'''
 
+
+@login_required
+def employer_question(request):
+    if request.method == 'POST':
+        employer_question_form = EmployerQuestionForm(request.POST)
+        if employer_question_form.is_valid() and request.user.is_active:
+            '''employer_question_form.fields['employer_id'] = request.user.employer.employer_id
+            employer_question_form.cleaned_data['company_id'] = request.user.employer.company_id'''
+            employer_question_form.save()
+            return HttpResponseRedirect(reverse('polls:polls_home'))
+    else:
+        employer_question_form = EmployerQuestionForm()
+        return render(request, 'polls/employer_list.html', {
+            'employer_question_form': employer_question_form,
+        })
 
 
 '''
@@ -45,16 +62,15 @@ class InputCodeFormView(FormView):
         inputcompanycode = form.cleaned_data['input_code']
 
         #selectlist는 queryset이다(dic type)
-        selectlist = SelectVariable.objects.filter(Q(company_id__icontains=inputcompanycode)).distinct().values()
-
+        selectlist = SelectAbility.objects.get(company_id__company_id=inputcompanycode)
         #dic 형태를 활용하기 위해 list 형태로 바꿈
-        makelist = list(selectlist)
+        #makelist = list(selectlist)
 
         #list 출력 test
         #printlist(makelist)
 
         #value 가 true인 key만 뽑아서 list 형태로 바꿈
-        makelist = truecheck(makelist)
+        #makelist = truecheck(makelist)
 
         context = {}
         context['form'] = form
@@ -74,8 +90,6 @@ class ChoiceFormView(FormView):
         context['form'] = form
         context['object_list'] = like
         return render(self.request, self.template_name, context)
-
-
 
 
 # 인사담당자가 true 체크한 리스트를 뽑아주는 함수 return값은 list 형태
@@ -144,9 +158,3 @@ class MultipleFormsDemoView(MultiFormsView):
         form_name = form.cleaned_data.get('action')
         return HttpResponseRedirect(self.get_success_url(form_name))
     '''
-
-
-class TestView(View):
-
-    def get(self, request, *args, **kwargs):
-        return HttpResponse('hello, world')

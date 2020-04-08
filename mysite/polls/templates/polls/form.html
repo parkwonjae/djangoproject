@@ -6,9 +6,12 @@
 {% block content %}
 <form action="." method="post">{%csrf_token%}
     {{form.as_table}}
+    <br>
+    {{object_list}}
+    <br>
     <input type="submit" value="Submit" class="btn btn-primary btn-sm">
 </form>
-
+{% comment %}
 <br>
 {% if object_list %}
     {% for object in object_list %}
@@ -36,4 +39,5 @@
 {% elif code %}
 <b><i>input code {{code}} Not found </i></b>
 {% endif %}
+{% endcomment %}
 {% endblock %}

@@ -3,25 +3,33 @@ from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from polls.models import Employer
 from polls.models import Company
+from polls.models import ComToEmployer
 
 
 class CompanyForm(forms.ModelForm):
     class Meta:
         model = Company
         fields = '__all__'
-        exclude = ['company_id',]
 
 
 class EmployerForm(forms.ModelForm):
     class Meta:
         model = Employer
         fields = '__all__'
+        exclude = ['user',]
+        #widgets = {'company_id': forms.HiddenInput}
 
 
 class UserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('username', 'password')
+
+
+class ComToEmployerForm(forms.ModelForm):
+    class Meta:
+        model = ComToEmployer
+        fields = '__all__'
 
 
 class CreateEmployerForm(UserCreationForm):

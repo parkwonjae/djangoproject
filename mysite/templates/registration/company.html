@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title%} user.html {% endblock %}
+
+{% block content %}
+<form method="post" action="{% url 'companysignup' %}">
+    {% csrf_token %}
+    {{company_form.as_p}}
+    <button type="submit"> 회사 </button>
+</form>
+{% endblock %}

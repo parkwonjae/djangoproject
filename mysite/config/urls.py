@@ -19,6 +19,8 @@ from config.views import HomeView
 from config.views import UserCreateView, UserCreateDoneTV
 from config.views import signup, test
 
+from config.views import usersignup, companysignup, employersignup
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeView.as_view(), name='home'),
@@ -26,6 +28,10 @@ urlpatterns = [
     path('accounts/register/', UserCreateView.as_view(), name='register'),
     path('accounts/register/done/', UserCreateDoneTV.as_view(), name='register_done'),
     path('accounts/register/test/', signup, name='register_test'),
+    path('accounts/register/user/', usersignup, name='usersignup'),
+    path('accounts/register/company/', companysignup, name='companysignup'),
+    path('accounts/register/employer/', employersignup, name='employersignup'),
+
     path('test/', test, name='test'),
     #path('bookmark/', include('bookmark.urls')),
     #path('blog/', include('blog.urls')),

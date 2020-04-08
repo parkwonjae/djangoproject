@@ -3,7 +3,7 @@ from polls.models import EmployerQuestion
 
 
 class InputCodeForm(forms.Form):
-    input_code = forms.CharField(label='Input Code')
+    input_code = forms.CharField(label='input_code')
 
 
 class ChoiceForm(forms.Form):
@@ -14,11 +14,12 @@ class ChoiceForm(forms.Form):
     test = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect)
 
 
-class ChoiceFormTest(forms.ModelForm):
+class EmployerQuestionForm(forms.ModelForm):
     class Meta:
         model = EmployerQuestion
         fields = '__all__'
-        exclude = ('company_id', 'employer_id')
+        #exclude = ['company_id', 'employer_id']
+
 
 
 class MultipleForm(forms.Form):

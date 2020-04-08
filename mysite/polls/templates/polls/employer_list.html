@@ -3,15 +3,27 @@
 {% block title %}employer_list.html {% endblock %}
 
 {% block content %}
-    <h1>employer page</h1>
+    <h1>employer_list.html</h1>
     <h2>설문에 성실히 임해주시기 바랍니다. </h2>
     <br>
     <br>
     <h2>1. 매우 그렇다. 2. 조금 그렇다. 3. 보통이다. 4. 조금 아니다. 5. 매우 아니다. </h2>
     <br>
 
-    <form action="{% url 'polls:polls_home' %}" method="post">{%csrf_token%}
-        {{form.as_p}}
+    <form action="{% url 'polls:employer' %}" method="post">{%csrf_token%}
+        {{employer_question_form.as_p}}
+        <br>
+        {% comment %}
+
+        company_id :{{employer_question_form.company_id}}
+        {% endcomment %}
+        <br>
+        user.employer : {{user.employer.employer_id}}
+
+        <br>
+        {{request.user.employer.company_id}}
+        <br>
+
         <input type="submit" value="Submit" class="btn btn-primary btn-sm">
     </form>
 {% endblock %}
